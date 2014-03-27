@@ -1,0 +1,26 @@
+<div class="blog-post">
+  <h2 class="blog-post-title">{{data.name}}</h2>
+</div><!-- /.blog-post -->
+<table class="sheet table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th class="number">#</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+    <tr ng-repeat="hour in data.hours">
+      <td class="number">{{hour.hour}}</td>
+      <td>
+        <input type="text" class="form-control" ng-model="hour.value" placeholder="Enter some notes"></input>
+      </td>
+    </tr>
+</table>
+
+<div class="btn-group">
+  <a href="#/{{data.yesterday}}" type="button" class="btn btn-default">yesterday</a>
+  <a href="#/{{data.tomorrow}}" type="button" class="btn btn-default">tomorrow</a>
+</div>
+<div class="btn-group">
+  <a href="#/" type="button" class="btn btn-default">today</a>
+  <a type="button" ng-click="save()" class="btn btn-primary btn-default">save</a>
+</div>

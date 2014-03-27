@@ -1,0 +1,8 @@
+# os specifics
+.DS_Store
+.idea/
+
+# language specifics
+cover/
+.coverage
+*.pyc

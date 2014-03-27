@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="timegrapple" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Timegrapple</title>
+
+    <!-- Bootstrap -->
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="/static/css/blog.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="blog-header">
+        <h1 class="blog-title">Timegrapple</h1>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-8 blog-main" ng-view>
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module">
+            <h4>Weeks</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">January 6th 2014</a></li>
+              <li><a href="#">January 13th 2014</a></li>
+              <li><a href="#">January 20th 2014</a></li>
+              <li><a href="#">January 27th 2014</a></li>
+              <li><a href="#">Feburary 3rd 2014</a></li>
+            </ol>
+          </div>
+        </div><!-- /.blog-sidebar -->
+      </div><!-- /.row -->
+    </div><!-- /.container -->
+
+    <script src="/static/angular/angular.min.js"></script>
+    <script src="/static/angular/angular-resource.min.js"></script>
+    <script src="/static/angular/angular-route.min.js"></script>
+    <script src="/static/js/app.js"></script>
+  </body>
+</html>
