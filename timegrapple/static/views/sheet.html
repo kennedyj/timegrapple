@@ -11,14 +11,14 @@
     <tr ng-repeat="hour in data.hours">
       <td class="number">{{hour.hour}}</td>
       <td>
-        <input type="text" class="form-control" ng-model="hour.value" placeholder="Enter some notes"></input>
+        <input type="text" class="form-control" ng-model="hour.value" placeholder="notes..." ng-blur="save()"></input>
       </td>
     </tr>
 </table>
 
 <div class="btn-group">
-  <a href="#/{{data.yesterday}}" type="button" class="btn btn-default">yesterday</a>
-  <a href="#/{{data.tomorrow}}" type="button" class="btn btn-default">tomorrow</a>
+  <a href="#/for/{{data.yesterday}}" type="button" class="btn btn-default">yesterday</a>
+  <a href="#/for/{{data.tomorrow}}" type="button" class="btn btn-default">tomorrow</a>
 </div>
 <div class="btn-group">
   <a href="#/" type="button" class="btn btn-default">today</a>

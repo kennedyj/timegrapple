@@ -6,7 +6,7 @@ angular.module('timegrapple', ['ngRoute'])
       controller: 'grapple',
       templateUrl: '/static/views/sheet.html'
     })
-    .when('/:dateId', {
+    .when('/for/:dateId', {
       controller: 'grapple',
       templateUrl: '/static/views/sheet.html'
     })
