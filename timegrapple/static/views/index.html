@@ -28,16 +28,14 @@
         <div class="col-sm-8 blog-main" ng-view>
         </div><!-- /.blog-main -->
 
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar" ng-controller='weekmgr'>
           <div class="sidebar-module">
-            <h4>Weeks</h4>
-            <ol class="list-unstyled">
-              <li><a href="#">January 6th 2014</a></li>
-              <li><a href="#">January 13th 2014</a></li>
-              <li><a href="#">January 20th 2014</a></li>
-              <li><a href="#">January 27th 2014</a></li>
-              <li><a href="#">Feburary 3rd 2014</a></li>
-            </ol>
+            <p>{{selectedDate | date:'fullDate' }}</p>
+            <div style="display:inline-block; min-height:290px;">
+              <div class="datepicker" ng-model="selectedDate">
+                  <datepicker show-weeks="false"></datepicker>
+              </div>
+            </div>
           </div>
         </div><!-- /.blog-sidebar -->
       </div><!-- /.row -->
@@ -46,6 +44,7 @@
     <script src="/static/angular/angular.min.js"></script>
     <script src="/static/angular/angular-resource.min.js"></script>
     <script src="/static/angular/angular-route.min.js"></script>
+    <script src="/static/angular/ui-bootstrap-tpls-0.10.0.min.js"></script>
     <script src="/static/js/app.js"></script>
   </body>
 </html>

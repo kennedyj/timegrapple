@@ -2,7 +2,10 @@ from timegrapple.app import app
 import flask
 import json
 
+from datetime import date
+
 import timegrapple.data
+from timegrapple.util import date_to_string, get_mondays
 
 
 @app.route('/')
@@ -26,6 +29,18 @@ def for_day_save(when):
 
     timegrapple.data.save(when, data)
     return "saved", 200
+
+
+@app.route('/weeks/')
+def get_week_list():
+    return get_week_list_for(date.today().year)
+    pass
+
+
+@app.route('/weeks/<year>')
+def get_week_list_for(year):
+    days = [date_to_string(d) for d in get_mondays(int(year))]
+    return flask.jsonify({'weeks': days})
 
 
 @app.errorhandler(404)

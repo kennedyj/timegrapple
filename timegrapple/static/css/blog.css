@@ -179,3 +179,7 @@ table.sheet .number {
   background: none;
   box-shadow: none;
 }
+
+div.datepicker .btn-default {
+  border: 0;
+}

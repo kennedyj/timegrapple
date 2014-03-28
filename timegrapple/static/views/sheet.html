@@ -1,5 +1,10 @@
 <div class="blog-post">
-  <h2 class="blog-post-title">{{data.name}}</h2>
+  <p class="blog-post-meta">
+    {{data.name}}
+    <span ng-show="saved" class="glyphicon glyphicon-ok"></span>
+    <span ng-show="saving" class="glyphicon glyphicon-time"></span>
+    <span ng-show="saveFailed" class="glyphicon glyphicon-exclamation-sign"></span>
+  </p>
 </div><!-- /.blog-post -->
 <table class="sheet table table-striped table-bordered">
   <thead>

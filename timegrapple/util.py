@@ -42,3 +42,15 @@ def string_to_date(when):
 
 def date_to_string(date):
     return date.strftime("%Y-%m-%d")
+
+
+def get_mondays(year=2014):
+    delta = datetime.timedelta(days=7)
+    monday = isoweek.Week(year, 1).monday()
+
+    days = []
+    while monday.year <= year:
+        days.append(monday)
+        monday = monday + delta
+
+    return days
