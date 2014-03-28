@@ -15,32 +15,36 @@ angular.module('timegrapple', ['ngRoute', 'ui.bootstrap'])
     });
 })
 
-.controller('grapple', function($scope, $http, $location, $routeParams, $rootScope) {
+.factory('util', function() {
+  return {
+    dateToString: function(d) {
+      if (d instanceof Date) {
+        return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+      }
+      else {
+        return d;
+      }
+    },
+
+    datesEqual: function(oldDate, newDate) {
+      oldDate = this.dateToString(oldDate);
+      newDate = this.dateToString(newDate);
+
+      if (newDate == oldDate) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+  };
+})
+
+.controller('grapple', function($scope, $http, $location, $routeParams, $rootScope, util) {
   $scope.data = {};
   $scope.saving = false;
   $scope.saved = false;
   $scope.saveFailed = false;
-
-  $rootScope.dateToString = function(d) {
-    if (d instanceof Date) {
-      return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
-    }
-    else {
-      return d;
-    }
-  }
-
-  $rootScope.datesEqual = function(oldDate, newDate) {
-    oldDate = $rootScope.dateToString(oldDate);
-    newDate = $rootScope.dateToString(newDate);
-
-    if (newDate == oldDate) {
-      return true;
-    }
-    else {
-      return false;
-    }
-  };
 
   $scope.load = function(when) {
     if (when === undefined) {
@@ -62,8 +66,8 @@ angular.module('timegrapple', ['ngRoute', 'ui.bootstrap'])
   });
 
   $rootScope.$watch('pickerDate', function(newDate, oldDate) {
-    if (!$rootScope.datesEqual($rootScope.dataDate, newDate)) {
-      $location.path('/for/' + $rootScope.dateToString(newDate));
+    if (!util.datesEqual($rootScope.dataDate, newDate)) {
+      $location.path('/for/' + util.dateToString(newDate));
     }
   });
 
@@ -86,7 +90,7 @@ angular.module('timegrapple', ['ngRoute', 'ui.bootstrap'])
   }
 })
 
-.controller('weekmgr', function($scope, $http, $rootScope) {
+.controller('weekmgr', function($scope, $http, $rootScope, util) {
   $rootScope.$watch('dataDate', function(newDate, oldDate) {
     if (newDate instanceof Date) {
       $scope.selectedDate = newDate;
@@ -94,7 +98,7 @@ angular.module('timegrapple', ['ngRoute', 'ui.bootstrap'])
   });
   $scope.$watch('selectedDate', function(newDate, oldDate) {
     if (newDate != null) {
-      $rootScope.pickerDate = $rootScope.dateToString(newDate);
+      $rootScope.pickerDate = util.dateToString(newDate);
     }
   });
 });
