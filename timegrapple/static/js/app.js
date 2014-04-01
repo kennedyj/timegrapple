@@ -82,10 +82,11 @@ angular.module('timegrapple', ['ngRoute', 'ui.bootstrap'])
       $scope.saved = true;
       $scope.saving = false;
       $scope.saveFailed = false;
-    }).error(function() {
+    }).error(function(data, status, headers, config) {
       $scope.saved = false;
       $scope.saving = false;
       $scope.saveFailed = true;
+      console.log(status, data);
     });
   }
 })
