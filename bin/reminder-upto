@@ -1,9 +1,4 @@
 #!/bin/bash
-ACTIVATE="-activate com.apple.TextEdit"
-FILE_PATH="/Users/jkennedy/Dropbox/Personal/melt/___doit___.txt"
-OPEN_ARG="-open $FILE_PATH"
-EXECUTE_ARG="-execute \"open -a TextEdit $FILE_PATH\""
-
 if [ -e "/usr/local/bin/terminal-notifier" ]
 then
   /usr/local/bin/terminal-notifier -message "What have you been doing the past hour?" -title "Whatcha Up To?" -group "timegrapple-reminders" -execute "/usr/bin/open http://grapple.local/#/"> /dev/null

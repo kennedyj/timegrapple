@@ -6,8 +6,8 @@
   <string>com.vsso.timegrapple</string>
   <key>ProgramArguments</key>
   <array>
-    <string>/Users/jkennedy/.virtualenvs/timegrapple/bin/python</string>
-    <string>/Users/jkennedy/git/kennedyj/timegrapple/main.py</string>
+    <string>/Users/{{user}}/.virtualenvs/timegrapple/bin/python</string>
+    <string>/Users/{{user}}/{{install_path}}/timegrapple/main.py</string>
   </array>
   <key>RunAtLoad</key>
   <true/>

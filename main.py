@@ -18,8 +18,6 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    host = "127.0.0.1"
-    port = 5100
     run_simple(
         args.host, args.port, timegrapple.app.app, threaded=True,
         use_reloader=args.reloader, use_debugger=args.reloader,
